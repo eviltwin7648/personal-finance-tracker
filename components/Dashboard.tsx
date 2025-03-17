@@ -16,7 +16,7 @@ import {
 } from 'recharts';
 import { format, startOfMonth, endOfMonth } from 'date-fns';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Transaction, MonthlyBudget, AggregatedBudget } from '@/app/types';
+import { Transaction, AggregatedBudget } from '@/app/types';
 
 interface DashboardProps {
   transactions: Transaction[];
@@ -57,7 +57,6 @@ export function Dashboard({ transactions }: DashboardProps) {
     }
   };
 
-  const currentMonth = format(new Date(), 'yyyy-MM');
   const currentMonthBudget = monthlyBudgets[0]?.totalBudget || 0;
   const currentMonthExpenses = transactions
     .filter(t => {
